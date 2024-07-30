@@ -7,6 +7,8 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import RootNavigator from './src/routes';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { setDefaultOptions } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 const GestureHandlerRootViewStyles = {
   flex: 1,
@@ -14,10 +16,11 @@ const GestureHandlerRootViewStyles = {
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  setDefaultOptions({ locale: ptBR })
 
   const backgroundStyle = {
     flex: 1,
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: '#f2f2f2',
   };
 
   return (
